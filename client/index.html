@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <title>Final Assignment Demo</title>
+    
+    <!-- Add a little bit of presentation. -->
+    <link media="only screen" href="css/styles.css" type="text/css" rel="stylesheet">
+
+    <!-- Why punish myself? -->    
+    <script src="js_lib/jquery.min.js"></script>
+
+    <!-- This is an AngularJS demo. -->
+    <script src="js_lib/angular.min.js"></script>
+    <script src="js_lib/ng-upload.min.js"></script> 
+    
+    <!-- Include sources from the 3D demo. -->
+    <script src="js_lib/three.min.js"></script>
+    <script src="js_lib/TrackballControls.js"></script>
+    <script src="js_lib/JSONLoader.js"></script>
+
+    <!-- Include the main Javasript source. -->
+    <script src="js_include/final.js"></script>
+  </head>
+  
+  <body>
+    <h1>Final Client</h1>
+    
+    <!-- Create a 3dModel controller. -->
+    <div id="controller" ng-controller="ThreeDModel">
+    
+      <form>
+        
+        <!-- Connect to and disconnect from the server. -->
+        <input id="connect" type="button" value="Connect"></input>
+        <input id="disconnect" type="button" value="Disconnect"></input>
+        <br>      
+        <hr>
+        
+        <div id="uploadmodel">
+          <input type="file" onchange="scope.setFile(this)"></input>
+          <br>
+          <input 
+            id="upload" 
+            type="button" 
+            value="Upload" 
+            ng-click="uploadModel()"></input>
+          <br>
+          <hr>
+        </div>
+        
+        <!-- Print available 3D models. -->
+        <ul class="model-list">
+          <li ng-repeat="threedmodel in threedmodels">
+            <span ng-click="loadModel(threedmodel.name);">
+              <div id="preview-{{threedmodel.name}}" class="model-preview"></div>
+              {{threedmodel.name}}
+            </span>
+          </li>
+        </ul>
+        
+      </form>      
+      
+    </div>
+    
+    <div id="threedpane"></div>
+    
+  </body>
+  
+</html>

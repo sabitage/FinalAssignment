@@ -1,0 +1,11 @@
+This content was created for a final assignment, by completing in-class 
+demos and tutorials, for the class CSCI 2160 Digital Media. The program
+allows for individuals to view 3D models of .js files and interact with
+them through mouse clicks.
+
+The client code allows the user to communicate with a local Node.JS server
+that runs the server.js program. Individuals are able to connect and disconnect
+to the server. A list of available models on the server is created on the user 
+connects to the server. The code allows the user to select the model. The model
+may be selected, displayed, and interacted with using the Three.js WebGL 
+Javascript framework. 
